@@ -5,8 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brownie Bistro Baker's — Nothing Beats Our Taste</title>
 <meta name="description" content="A premium handcrafted bakery. Cakes, brownies, pastries & cheesecakes baked fresh every day. Nothing Beats Our Taste.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Brownie Bistro Baker's",
+  "image": "assets/img-dc23643e69.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Azad Nagar Chouraha",
+    "addressLocality": "Moradabad",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "244001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.803750290018712,
+    "longitude": 78.76159020217969
+  },
+  "telephone": "+91 98765 43210",
+  "email": "hello@brownie__bistro.com",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "22:00"
+  },
+  "hasMap": "https://maps.app.goo.gl/6QjyPZ4FjHZfduL5A",
+  "url": "https://maps.app.goo.gl/6QjyPZ4FjHZfduL5A"
+}
+</script>
 <link rel="icon" href="assets/img-dc23643e69.png">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -24,22 +55,41 @@
       <li><a href="#shop">Shop</a></li>
       <li><a href="#collections">Collections</a></li>
       <li><a href="#visit">Contact</a></li>
+      <!-- mobile-only CTAs, mirrors nav-cta-group, shown inside the drawer under 900px -->
+      <div class="nav-cta-group-mobile">
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-whatsapp" aria-label="Contact us on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z"/></svg>
+          <span>Contact on WhatsApp</span>
+        </a>
+        <a href="https://instagram.com/brownie__bistro" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-instagram" aria-label="DM us on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>DM on Instagram</span>
+        </a>
+      </div>
     </ul>
     <div class="nav-actions">
-      <button class="icon-btn" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      </button>
-      <button class="icon-btn" aria-label="Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
-      </button>
-      <button class="icon-btn" id="cartIcon" aria-label="Cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-cta-group">
+        <!-- Edit the phone number below (digits only, with country code, no + or spaces) -->
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-whatsapp" aria-label="Contact us on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z"/></svg>
+          <span>Contact on WhatsApp</span>
+        </a>
+        <!-- Edit the username below -->
+        <a href="https://instagram.com/brownie__bistro" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-instagram" aria-label="DM us on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>DM on Instagram</span>
+        </a>
+      </div>
+      <span id="cartCount" class="visually-hidden">0</span>
+      <!-- Compact WhatsApp button shown in the header on phone screens -->
+      <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="nav-whatsapp-mobile" aria-label="Contact us on WhatsApp">
+        <img src="assets/whatsapp-icon.png" alt="" loading="lazy">
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
+<div class="menu-overlay" id="menuOverlay"></div>
 
 <!-- ===== HERO ===== -->
 <header class="hero" id="home">
@@ -216,11 +266,11 @@
           <div class="pcard-foot">
             <span class="price">₹1,299<small>/ 1kg</small></span>
             <button
-              class="add-btn"
+              class="whatsapp-btn"
               data-name="Signature Chocolate Drip Cake"
               data-price="1299"
-              data-img="assets/image (8).png">
-              +
+              aria-label="Order Signature Chocolate Drip Cake on WhatsApp">
+              <img src="assets/whatsapp-icon.png" alt="" loading="lazy">
             </button>
           </div>
         </div>
@@ -238,7 +288,7 @@
           <p>Dense, fudgy squares baked fresh daily, box of six.</p>
           <div class="pcard-foot">
             <span class="price">₹399<small>/ box</small></span>
-            <button class="add-btn" data-name="Classic Fudge Brownies" data-price="399" data-img="assets/image (9).png">+</button>
+            <button class="whatsapp-btn" data-name="Classic Fudge Brownies" data-price="399" aria-label="Order Classic Fudge Brownies on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button>
           </div>
         </div>
       </div>
@@ -256,7 +306,7 @@
           <p>Baked cheesecake, buttery biscuit base, glazed berry topping.</p>
           <div class="pcard-foot">
             <span class="price">₹899<small>/ slice pack</small></span>
-            <button class="add-btn" data-name="Mixed Berry Cheesecake" data-price="899" data-img="assets/image (11).png">+</button>
+            <button class="whatsapp-btn" data-name="Mixed Berry Cheesecake" data-price="899" aria-label="Order Mixed Berry Cheesecake on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button>
           </div>
         </div>
       </div>
@@ -273,7 +323,7 @@
           <p>Moist chocolate cupcake topped with whipped ganache swirl.</p>
           <div class="pcard-foot">
             <span class="price">₹99<small>/ piece</small></span>
-            <button class="add-btn" data-name="Chocolate Fudge Cupcake" data-price="99" data-img="assets/image (12).png">+</button>
+            <button class="whatsapp-btn" data-name="Chocolate Fudge Cupcake" data-price="99" aria-label="Order Chocolate Fudge Cupcake on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button>
           </div>
         </div>
       </div>
@@ -300,64 +350,68 @@
       <button class="chip" data-filter="cookies">Cookies</button>
       <button class="chip" data-filter="cheesecake">Cheesecake</button>
     </div>
-    <div class="product-scroller" style="grid-template-columns:repeat(4,1fr)">
+    <div class="product-scroller" style="grid-template-columns:repeat(2,1fr)">
 
       <div class="pcard reveal" data-cat="cakes">
         <div class="pcard-img"><img src="assets/image (12).png" alt="Chocolate celebration cake"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(214)</span></div><h3>Chocolate Celebration Cake</h3><p>Rich layered sponge, ganache drip finish.</p>
-          <div class="pcard-foot"><span class="price">₹1,299</span><button class="add-btn" data-name="Chocolate Celebration Cake" data-price="1299" data-img="assets/image (12).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹1,299</span><button class="whatsapp-btn" data-name="Chocolate Celebration Cake" data-price="1299" aria-label="Order Chocolate Celebration Cake on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="brownies">
         <div class="pcard-img"><img src="assets/image (9).png" alt="Fudge brownie box"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(389)</span></div><h3>Classic Fudge Brownie Box</h3><p>Box of six dense fudgy brownies.</p>
-          <div class="pcard-foot"><span class="price">₹399</span><button class="add-btn" data-name="Classic Fudge Brownie Box" data-price="399" data-img="assets/image (9).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹399</span><button class="whatsapp-btn" data-name="Classic Fudge Brownie Box" data-price="399" aria-label="Order Classic Fudge Brownie Box on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="cheesecake">
         <div class="pcard-img"><img src="assets/image (10).png" alt="Berry cheesecake"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(97)</span></div><h3>Mixed Berry Cheesecake</h3><p>Creamy baked cheesecake, berry glaze.</p>
-          <div class="pcard-foot"><span class="price">₹899</span><button class="add-btn" data-name="Mixed Berry Cheesecake" data-price="899" data-img="assets/image (10).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹899</span><button class="whatsapp-btn" data-name="Mixed Berry Cheesecake" data-price="899" aria-label="Order Mixed Berry Cheesecake on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="cupcakes">
         <div class="pcard-img"><img src="assets/image (11).png" alt="Chocolate cupcake"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(152)</span></div><h3>Chocolate Fudge Cupcake</h3><p>Single moist cupcake, ganache swirl.</p>
-          <div class="pcard-foot"><span class="price">₹99</span><button class="add-btn" data-name="Chocolate Fudge Cupcake" data-price="99" data-img="assets/image (11).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹99</span><button class="whatsapp-btn" data-name="Chocolate Fudge Cupcake" data-price="99" aria-label="Order Chocolate Fudge Cupcake on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="cookies">
         <div class="pcard-img"><img src="assets/image (12).png" alt="Chocolate chip cookies"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(178)</span></div><h3>Double Choc Chip Cookies</h3><p>Crisp edge, chewy centre, pack of eight.</p>
-          <div class="pcard-foot"><span class="price">₹349</span><button class="add-btn" data-name="Double Choc Chip Cookies" data-price="349" data-img="assets/image (12).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹349</span><button class="whatsapp-btn" data-name="Double Choc Chip Cookies" data-price="349" aria-label="Order Double Choc Chip Cookies on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="cakes">
         <div class="pcard-img"><img src="assets/image (13).png" alt="Mini chocolate cake"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(63)</span></div><h3>Mini Celebration Cake</h3><p>Half-kilo version, perfect for two.</p>
-          <div class="pcard-foot"><span class="price">₹699</span><button class="add-btn" data-name="Mini Celebration Cake" data-price="699" data-img="assets/image (14).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹699</span><button class="whatsapp-btn" data-name="Mini Celebration Cake" data-price="699" aria-label="Order Mini Celebration Cake on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="brownies">
         <div class="pcard-img"><img src="assets/image (14).png" alt="Walnut brownie box"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(88)</span></div><h3>Walnut Fudge Brownie</h3><p>Classic recipe folded with roasted walnuts.</p>
-          <div class="pcard-foot"><span class="price">₹449</span><button class="add-btn" data-name="Walnut Fudge Brownie" data-price="449" data-img="assets/image (14).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹449</span><button class="whatsapp-btn" data-name="Walnut Fudge Brownie" data-price="449" aria-label="Order Walnut Fudge Brownie on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
       <div class="pcard reveal" data-cat="cheesecake">
         <div class="pcard-img"><img src="assets/image (15).png" alt="Cheesecake jar"><button class="pcard-fav">♡</button><div class="pcard-overlay"><button class="qv-btn">Quick View</button></div></div>
         <div class="pcard-body"><div class="pcard-rating">★★★★★<span>(41)</span></div><h3>Cheesecake Jar</h3><p>Individual jarred cheesecake, berry compote.</p>
-          <div class="pcard-foot"><span class="price">₹249</span><button class="add-btn" data-name="Cheesecake Jar" data-price="249" data-img="assets/image (15).png">+</button></div>
+          <div class="pcard-foot"><span class="price">₹249</span><button class="whatsapp-btn" data-name="Cheesecake Jar" data-price="249" aria-label="Order Cheesecake Jar on WhatsApp"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></button></div>
         </div>
       </div>
 
+    </div>
+
+    <div class="shop-loadmore" id="shopLoadMoreWrap">
+      <button class="btn btn-outline btn-sm" id="shopLoadMoreBtn" type="button">Load More <span class="arrow-circle">→</span></button>
     </div>
   </div>
 </section>
@@ -377,7 +431,7 @@
       </div>
     </div>
     <div class="craft-visual reveal-scale">
-     <img src="assets/how_we_bake.png" alt="Craftsmanship - From oven to box" loading="lazy" decoding="async">
+      <img src="assets/#0B56C3.png" alt="Brownie Bistro Baker's apron and uniform">
     </div>
   </div>
 </section>
@@ -394,12 +448,12 @@
       </div>
     </div>
     <div class="cat-grid">
-      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (26).png" alt="Birthday cake"></div><div class="cat-label">Birthday <span class="go">→</span></div></a>
-      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (27).png" alt="Wedding cheesecake"></div><div class="cat-label">Wedding <span class="go">→</span></div></a>
-      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (28).png" alt="Anniversary cupcake"></div><div class="cat-label">Anniversary <span class="go">→</span></div></a>
-      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (29).png" alt="Corporate gifting brownies"></div><div class="cat-label">Corporate <span class="go">→</span></div></a>
-      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (30).png" alt="Kids party cookies"></div><div class="cat-label">Kids Party <span class="go">→</span></div></a>
-      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (31).png" alt="Luxury gift box"></div><div class="cat-label">Luxury Cakes <span class="go">→</span></div></a>
+      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (26).png" alt="Birthday cake"></div><div class="cat-label">Birthday <span class="go"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></span></div></a>
+      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (27).png" alt="Wedding cheesecake"></div><div class="cat-label">Wedding <span class="go"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></span></div></a>
+      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (28).png" alt="Anniversary cupcake"></div><div class="cat-label">Anniversary <span class="go"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></span></div></a>
+      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (29).png" alt="Corporate gifting brownies"></div><div class="cat-label">Corporate <span class="go"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></span></div></a>
+      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (30).png" alt="Kids party cookies"></div><div class="cat-label">Kids Party <span class="go"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></span></div></a>
+      <a href="#" class="cat-card reveal"><div class="cat-img"><img src="assets/image (31).png" alt="Luxury gift box"></div><div class="cat-label">Luxury Cakes <span class="go"><img src="assets/whatsapp-icon.png" alt="" loading="lazy"></span></div></a>
     </div>
   </div>
 </section>
@@ -417,17 +471,17 @@
       <div class="test-card reveal">
         <div class="test-stars">★★★★★</div>
         <p>"The chocolate drip cake was the centerpiece of my daughter's birthday — everyone asked where we got it. Nothing beats their taste, honestly."</p>
-        <div class="test-user"><div class="test-avatar">A</div><div><b>Aditi Sharma</b><span>Agra, UP</span></div></div>
+        <div class="test-user"><div class="test-avatar">A</div><div><b>Aditi Sharma</b><span>Moradabad, UP</span></div></div>
       </div>
       <div class="test-card reveal">
         <div class="test-stars">★★★★★</div>
         <p>"Their brownies are fudgy in a way I haven't found anywhere else. I now order a box every single week for the office."</p>
-        <div class="test-user"><div class="test-avatar">R</div><div><b>Rohan Verma</b><span>Agra, UP</span></div></div>
+        <div class="test-user"><div class="test-avatar">R</div><div><b>Rohan Verma</b><span>Moradabad, UP</span></div></div>
       </div>
       <div class="test-card reveal">
         <div class="test-stars">★★★★★</div>
         <p>"From the packaging to the presentation, everything feels premium. The berry cheesecake is now our family's go-to dessert."</p>
-        <div class="test-user"><div class="test-avatar">M</div><div><b>Meera Kapoor</b><span>Agra, UP</span></div></div>
+        <div class="test-user"><div class="test-avatar">M</div><div><b>Meera Kapoor</b><span>Moradabad, UP</span></div></div>
       </div>
     </div>
   </div>
@@ -462,15 +516,21 @@
       <div class="eyebrow">Come Say Hi</div>
       <h2 class="section-title">Visit Our Bakery</h2>
       <h3 style="margin-top:2rem">Store Details</h3>
-      <div class="visit-row"><span class="ic">📍</span><div><b>Address</b><span>MG Road, Sadar Bazaar, Agra, Uttar Pradesh</span></div></div>
+      <div class="visit-row"><span class="ic">📍</span><div><b>Address</b><span>Brownie Bistro Baker's, Azad Nagar Chouraha, Moradabad, Uttar Pradesh 244001, India</span></div></div>
       <div class="visit-row"><span class="ic">🕐</span><div><b>Opening Hours</b><span>Mon–Sun, 9:00 AM – 10:00 PM</span></div></div>
       <div class="visit-row"><span class="ic">📞</span><div><b>Phone</b><span>+91 98765 43210</span></div></div>
       <div class="visit-row"><span class="ic">✉️</span><div><b>Email</b><span>hello@brownie__bistro.com</span></div></div>
-      <a href="#" class="btn btn-primary" style="margin-top:1rem">Get Directions <span class="arrow-circle">→</span></a>
+      <a href="https://maps.app.goo.gl/6QjyPZ4FjHZfduL5A" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1rem">Get Directions <span class="arrow-circle">→</span></a>
     </div>
     <div class="visit-map reveal-scale">
-      <img src="assets/img-200e5a4b36.jpg" alt="Map placeholder showing bakery storefront location">
-      <div class="visit-pin"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218.5111642048608!2d78.76159020217969!3d28.803750290018712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afb2171f72005%3A0xcf81c9ec10481e18!2sBrownie%20Bistro%20Baker&#39;s!5e0!3m2!1sen!2sin!4v1784020021461!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
     </div>
   </div>
 </section>
@@ -525,7 +585,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand"><img src="assets/img-dc23643e69.png" alt="logo"><b>Brownie Bistro Baker's</b></div>
-        <p>A premium handcrafted bakery in Agra. Nothing Beats Our Taste — cakes, brownies, pastries and more, baked fresh every day.</p>
+        <p>A premium handcrafted bakery in Moradabad. Nothing Beats Our Taste — cakes, brownies, pastries and more, baked fresh every day.</p>
         <div class="footer-social">
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -555,7 +615,7 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li>MG Road, Sadar Bazaar, Agra, UP</li>
+          <li><a href="https://maps.app.goo.gl/6QjyPZ4FjHZfduL5A" target="_blank" rel="noopener noreferrer">Azad Nagar Chouraha, Moradabad, Uttar Pradesh 244001, India</a></li>
           <li>+91 98765 43210</li>
           <li>hello@brownie__bistro.com</li>
           <li>Mon–Sun, 9 AM – 10 PM</li>
@@ -584,6 +644,6 @@
 
 <div class="toast-wrap" id="toastWrap"></div>
 
-<script src="js/main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

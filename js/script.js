@@ -18,8 +18,31 @@ window.addEventListener('scroll', () => {
 // ===== MOBILE MENU =====
 const burger = document.getElementById('burger');
 const navLinksWrap = document.getElementById('navLinks');
+const menuOverlay = document.getElementById('menuOverlay');
+
+function openMenu() {
+  navLinksWrap.classList.add('open');
+  menuOverlay.classList.add('show');
+  burger.classList.add('open');
+  burger.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('menu-open');
+}
+function closeMenu() {
+  navLinksWrap.classList.remove('open');
+  menuOverlay.classList.remove('show');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
+}
 burger?.addEventListener('click', () => {
-  navLinksWrap.style.display = navLinksWrap.style.display === 'flex' ? 'none' : 'flex';
+  navLinksWrap.classList.contains('open') ? closeMenu() : openMenu();
+});
+menuOverlay?.addEventListener('click', closeMenu);
+navLinksWrap?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) closeMenu();
 });
 
 // ===== SCROLL REVEAL =====
@@ -46,20 +69,60 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// ===== FILTER CHIPS (Collection) =====
+// ===== FILTER CHIPS (Collection) + MOBILE LOAD MORE (Our Bakery Menu) =====
 const chips = document.querySelectorAll('.chip');
 const filterCards = document.querySelectorAll('[data-cat]');
+const shopLoadMoreWrap = document.getElementById('shopLoadMoreWrap');
+const shopLoadMoreBtn = document.getElementById('shopLoadMoreBtn');
+const SHOP_MOBILE_INITIAL_COUNT = 4;
+let shopExpanded = false;
+let activeShopFilter = 'all';
+
+function shopIsMobile() {
+  return window.matchMedia('(max-width:900px)').matches;
+}
+
+function applyShopVisibility() {
+  const matches = Array.from(filterCards).filter(
+    card => activeShopFilter === 'all' || card.dataset.cat === activeShopFilter
+  );
+  Array.from(filterCards).forEach(card => {
+    if (!matches.includes(card)) card.style.display = 'none';
+  });
+  if (shopIsMobile()) {
+    matches.forEach((card, i) => {
+      card.style.display = (shopExpanded || i < SHOP_MOBILE_INITIAL_COUNT) ? '' : 'none';
+    });
+    const hasMore = matches.length > SHOP_MOBILE_INITIAL_COUNT;
+    if (shopLoadMoreWrap) shopLoadMoreWrap.style.display = hasMore ? 'flex' : 'none';
+    if (shopLoadMoreBtn) {
+      shopLoadMoreBtn.innerHTML = shopExpanded
+        ? 'Show Less <span class="arrow-circle">↑</span>'
+        : 'Load More <span class="arrow-circle">→</span>';
+    }
+  } else {
+    matches.forEach(card => { card.style.display = ''; });
+    if (shopLoadMoreWrap) shopLoadMoreWrap.style.display = 'none';
+  }
+}
+
 chips.forEach(chip => {
   chip.addEventListener('click', () => {
     chips.forEach(c => c.classList.remove('active'));
     chip.classList.add('active');
-    const cat = chip.dataset.filter;
-    filterCards.forEach(card => {
-      const show = cat === 'all' || card.dataset.cat === cat;
-      card.style.display = show ? '' : 'none';
-    });
+    activeShopFilter = chip.dataset.filter;
+    shopExpanded = false;
+    applyShopVisibility();
   });
 });
+
+shopLoadMoreBtn?.addEventListener('click', () => {
+  shopExpanded = !shopExpanded;
+  applyShopVisibility();
+});
+
+window.addEventListener('resize', applyShopVisibility);
+applyShopVisibility();
 
 // ===== CART SYSTEM =====
 let cart = [];
@@ -114,6 +177,19 @@ function addToCart(name, price, img) {
 document.querySelectorAll('.add-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     addToCart(btn.dataset.name, parseInt(btn.dataset.price), btn.dataset.img);
+  });
+});
+
+// ===== WHATSAPP ORDER BUTTONS (Our Bakery Menu) =====
+// Edit the phone number below (digits only, with country code, no + or spaces)
+const WHATSAPP_ORDER_NUMBER = '919876543210';
+document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.name;
+    const price = btn.dataset.price;
+    const message = `Hi! I'd like to order: ${name} (₹${price}) from Brownie Bistro Baker's.`;
+    const url = `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   });
 });
 
@@ -172,3 +248,4 @@ document.querySelector('.hero')?.addEventListener('mousemove', (e) => {
   const y = (e.clientY / window.innerHeight - 0.5) * 14;
   heroVisual.style.transform = `translate(${x}px, ${y}px)`;
 });
+
